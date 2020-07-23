@@ -63,23 +63,30 @@
 
 // //? TASK 4
 
-// const formatString = function (string) {
-//   if (string.length <= 40) {
-//     return string;
-//   } else {
-//     const newString = Array.from(string);
-//     newString.splice(39, string.length - 39, '...');
-//     return newString.join('');
-//   }
-// };
+const formatString = function (string) {
+  //* -----старый вариант-----
+  //  if (string.length <= 40) {
+  //    return string;
+  //   } else {
+  //     const newString = Array.from(string);
+  //     newString.splice(39, string.length - 39, '...');
+  //     return newString.join('');
+  // }
 
-// console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
+  //* -----новый вариант-----
+  if (string.length > 40) {
+    string = string.substring(0, 40) + '...';
+  }
+  return string;
+};
+
+console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
 // // вернется оригинальная строка
 
-// console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
 // // вернется форматированная строка
 
-// console.log(formatString('Curabitur ligula sapien.'));
+console.log(formatString('Curabitur ligula sapien.'));
 // // вернется оригинальная строка
 
 // console.log(
@@ -93,17 +100,16 @@
 
 // const checkForSpam = function (message) {
 //   const newMessage = message.toLowerCase();
-//   newMessage.includes('sale') || newMessage.includes('spam')
-//     ? console.log('true')
-//     : console.log('false');
+//* -----новый вариант-----
+//   return newMessage.includes('sale') || newMessage.includes('spam');
 // };
-// checkForSpam('Latest technology news')); // false
+// console.log(checkForSpam('Latest technology news')); // false
 
-// checkForSpam('JavaScript weekly newsletter')); // false
+// console.log(checkForSpam('JavaScript weekly newsletter')); // false
 
-// checkForSpam('Get best sale offers now!')); // true
+// console.log(checkForSpam('Get best sale offers now!')); // true
 
-// checkForSpam('[SPAM] How to earn fast money?')); // true
+// console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
 
 //? TASK 6
 
@@ -156,4 +162,3 @@
 // addLogin(logins, 'robotGoogles'); // 'Такой логин уже используется!'
 // addLogin(logins, 'Zod'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
 // addLogin(logins, 'jqueryisextremelyfast'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
-
