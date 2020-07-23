@@ -32,32 +32,22 @@
 // console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 })); // 3
 
 // //? TASK 3
-//? TO CLARIFY HOW TO SHOW NAME
-// Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников
-// и возвращает имя самого продуктивного(который выполнил больше всех задач).
-// Сотрудники и кол - во выполненых задач содержатся как свойства объекта в формате "имя": "кол-во задач".
 
 // const findBestEmployee = function (employees) {
-//   const quantityArr = Object.values(obj);
+//   let employeeNames = Object.keys(employees);
 
-//   let biggestQuantity = quantityArr[0];
-//   for (let i = 1; i < quantityArr.length; i += 1) {
-//     if (quantityArr[i] > biggestQuantity) {
-//       biggestQuantity = quantityArr[i];
+//   let bestNumber = 0;
+//   let bestName = '';
+//   for (let employeeName of employeeNames) {
+//     if (employees[employeeName] > bestNumber) {
+//       bestNumber = employees[employeeName];
+//       bestName = employeeName;
 //     }
 //   }
 
-//   console.log(biggestQuantity);
+//   return bestName;
 // };
-// for in
-//     remembering the key of max element
-// el = 0
 
-// return key
-//     value of key[]
-// /*
-//  * Вызовы функции для проверки работоспособности твоей реализации.
-//  */
 // console.log(
 //   findBestEmployee({
 //     ann: 29,
@@ -116,28 +106,58 @@
 //   }),
 // ); // 400
 
-//?TASK 5
+// //?TASK 5
 
-const products = [
-  { name: 'Радар', price: 1300, quantity: 4 },
-  { name: 'Сканер', price: 2700, quantity: 3 },
-  { name: 'Дроид', price: 400, quantity: 7 },
-  { name: 'Захват', price: 1200, quantity: 2 },
-];
+// const products = [
+//   { name: 'Радар', price: 1300, quantity: 4 },
+//   { name: 'Сканер', price: 2700, quantity: 3 },
+//   { name: 'Дроид', price: 400, quantity: 7 },
+//   { name: 'Захват', price: 1200, quantity: 2 },
+// ];
 
-const getAllPropValues = function (arr, prop) {
-  const names = [];
-  for (const obj of products) {
-    names.push(products.name);
-  }
-  return names;
-};
+// const getAllPropValues = function (arr, prop) {
+//   let result = [];
+//   for (let el of arr) {
+//     if (el[prop]) {
+//       result.push(el[prop]);
+//     }
+//   }
+//   return result;
+// };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(getAllPropValues(products, 'name')); // ['Радар', 'Сканер', 'Дроид', 'Захват']
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(getAllPropValues(products, 'name')); // ['Радар', 'Сканер', 'Дроид', 'Захват']
 
-console.log(getAllPropValues(products, 'quantity')); // [4, 3, 7, 2]
+// console.log(getAllPropValues(products, 'quantity')); // [4, 3, 7, 2]
 
-console.log(getAllPropValues(products, 'category')); // []
+// console.log(getAllPropValues(products, 'category')); // []
+
+//?TASK 6
+
+// const products = [
+//   { name: 'Радар', price: 1300, quantity: 4 },
+//   { name: 'Сканер', price: 2700, quantity: 3 },
+//   { name: 'Дроид', price: 400, quantity: 7 },
+//   { name: 'Захват', price: 1200, quantity: 2 },
+// ];
+
+// const calculateTotalPrice = function (allProducts, productName) {
+//   let result = 0;
+//   for (let product of allProducts) {
+//     if (product['name'] === productName) {
+//       result = product['price'] * product['quantity'];
+//       break;
+//     }
+//   }
+//   return result;
+// };
+
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(calculateTotalPrice(products, 'Радар')); // 5200
+
+// console.log(calculateTotalPrice(products, 'Захват')); // 2400
+
