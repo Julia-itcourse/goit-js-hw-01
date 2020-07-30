@@ -97,11 +97,6 @@
 
 //? TASK 4
 
-//* append(str) {
-//*this._value = this._value.concat(str);
-//*  } why works with this._value and throws an error with this.value
-//* as there  is only getter?
-
 // class StringBuilder {
 //   constructor(str) {
 //     this._value = str;
