@@ -28,33 +28,33 @@
 
 //? TASK 2
 
-class User {
-  constructor({ name, age, followers }) {
-    this.name = name;
-    this.age = age;
-    this.followers = followers;
-  }
-  getInfo() {
-    console.log(`User ${this.name} is ${this.age} years old and
-has ${this.followers} followers`);
-  }
-}
+// class User {
+//   constructor({ name, age, followers }) {
+//     this.name = name;
+//     this.age = age;
+//     this.followers = followers;
+//   }
+//   getInfo() {
+//     console.log(`User ${this.name} is ${this.age} years old and
+// has ${this.followers} followers`);
+//   }
+// }
 
-const mango = new User({
-  name: 'Mango',
-  age: 2,
-  followers: 20,
-});
+// const mango = new User({
+//   name: 'Mango',
+//   age: 2,
+//   followers: 20,
+// });
 
-mango.getInfo(); // User Mango is 2 years old and has 20 followers
+// mango.getInfo(); // User Mango is 2 years old and has 20 followers
 
-const poly = new User({
-  name: 'Poly',
-  age: 3,
-  followers: 17,
-});
+// const poly = new User({
+//   name: 'Poly',
+//   age: 3,
+//   followers: 17,
+// });
 
-poly.getInfo(); // User Poly is 3 years old and has 17 followers
+// poly.getInfo(); // User Poly is 3 years old and has 17 followers
 
 //? TASK 3
 
@@ -153,22 +153,23 @@ class Car {
    *  distance - общий киллометраж, изначально 0
    */
   constructor(speed = 0, price, maxSpeed, isOn = false, distance = 0) {
-    this._speed = speed;
+    this.speed = speed;
     this._price = price;
-    this._maxSpeed = maxSpeed;
-    this._isOn = isOn;
-    this._distance = distance;
+    this.maxSpeed = maxSpeed;
+    this.isOn = isOn;
+    this.distance = distance;
   }
 
   get price() {
+    //*why getter returnes undefined?
     return this._price;
   }
-  set price(price) {
+  set price(carPrice) {
     return (this._price = carPrice); //* Clarify names for setter and parameter it takes
   }
   static getSpecs(car) {
-    console.log(`Максимальная скорость: ${this.maxSpeed}, текущая скорость: ${this.speed}, заведен ли автомобиль: ${this.isOn}, 
-  общий киллометраж: ${this.distance}, цена: ${this.price}`);
+    console.log(`Максимальная скорость: ${car.maxSpeed}, текущая скорость: ${car.speed}, заведен ли автомобиль: ${car.isOn}, 
+  общий киллометраж: ${car.distance}, цена: ${car._price}`);
   }
   /*
    * Добавь геттер и сеттер для свойства price,
