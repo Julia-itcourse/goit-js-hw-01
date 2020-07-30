@@ -152,7 +152,7 @@ class Car {
    *  isOn - заведен ли автомобиль, значения true или false. Изначально false
    *  distance - общий киллометраж, изначально 0
    */
-  constructor(speed = 0, price, maxSpeed, isOn = false, distance = 0) {
+  constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
     this.speed = speed;
     this._price = price;
     this.maxSpeed = maxSpeed;
@@ -165,7 +165,7 @@ class Car {
     return this._price;
   }
   set price(carPrice) {
-    return (this._price = carPrice); //* Clarify names for setter and parameter it takes
+    this._price = carPrice; //* Clarify names for setter and parameter it takes
   }
   static getSpecs(car) {
     console.log(`Максимальная скорость: ${car.maxSpeed}, текущая скорость: ${car.speed}, заведен ли автомобиль: ${car.isOn}, 
@@ -181,7 +181,7 @@ class Car {
    * Записывает в свойство isOn значение true
    */
   turnOn() {
-    this._isOn = true;
+    this.isOn = true;
   }
 
   /*
@@ -190,8 +190,8 @@ class Car {
    * и сбрасывает текущую скорость в 0
    */
   turnOff() {
-    this._isOn = false;
-    this._speed = 0;
+    this.isOn = false;
+    this.speed = 0;
   }
 
   /*
@@ -200,8 +200,8 @@ class Car {
    * не больше чем значение свойства maxSpeed
    */
   accelerate(value) {
-    if (this._speed + value < this._maxSpeed) {
-      this._speed += value;
+    if (this.speed + value < this.maxSpeed) {
+      this.speed += value;
     }
   }
 
@@ -210,8 +210,8 @@ class Car {
    * при условии что результирующая скорость не меньше нуля
    */
   decelerate(value) {
-    if (this._speed - value >= 0) {
-      this._speed -= value;
+    if (this.speed - value >= 0) {
+      this.speed -= value;
     }
   }
 
@@ -220,8 +220,8 @@ class Car {
    * но только в том случае если машина заведена!
    */
   drive(hours) {
-    if (this._isOn === true) {
-      this._distance = hours * this._speed;
+    if (this.isOn === true) {
+      this.distance += hours * this.speed;
     }
   }
 }
