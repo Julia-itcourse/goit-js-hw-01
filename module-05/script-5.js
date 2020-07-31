@@ -130,113 +130,114 @@
 
 //? TASK 5
 
-class Car {
-  /*
-   * Добавь статический метод `getSpecs(car)`,
-   * который принимает объект-машину как параметр и выводит
-   * в консоль значения свойств maxSpeed, speed, isOn, distance и price.
-   */
+// class Car {
+//   /*
+//    * Добавь статический метод `getSpecs(car)`,
+//    * который принимает объект-машину как параметр и выводит
+//    * в консоль значения свойств maxSpeed, speed, isOn, distance и price.
+//    */
 
-  /*
-   * Конструктор получает объект настроек.
-   *
-   * Добавь свойства будущеего экземпляра класса:
-   *  speed - текущая скорость, изначально 0
-   *  price - цена автомобиля
-   *  maxSpeed - максимальная скорость
-   *  isOn - заведен ли автомобиль, значения true или false. Изначально false
-   *  distance - общий киллометраж, изначально 0
-   */
-  constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
-    this.speed = speed;
-    this._price = price;
-    this.maxSpeed = maxSpeed;
-    this.isOn = isOn;
-    this.distance = distance;
-  }
+//   /*
+//    * Конструктор получает объект настроек.
+//    *
+//    * Добавь свойства будущеего экземпляра класса:
+//    *  speed - текущая скорость, изначально 0
+//    *  price - цена автомобиля
+//    *  maxSpeed - максимальная скорость
+//    *  isOn - заведен ли автомобиль, значения true или false. Изначально false
+//    *  distance - общий киллометраж, изначально 0
+//    */
+//   constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
+//     this.speed = speed;
+//     this._price = price;
+//     this.maxSpeed = maxSpeed;
+//     this.isOn = isOn;
+//     this.distance = distance;
+//   }
 
-  get price() {
-    //*why getter returnes undefined?
-    return this._price;
-  }
-  set price(carPrice) {
-    this._price = carPrice; //* Clarify names for setter and parameter it takes
-  }
-  static getSpecs(car) {
-    console.log(`Максимальная скорость: ${car.maxSpeed}, текущая скорость: ${car.speed}, заведен ли автомобиль: ${car.isOn}, 
-  общий киллометраж: ${car.distance}, цена: ${car._price}`);
-  }
-  /*
-   * Добавь геттер и сеттер для свойства price,
-   * который будет работать с свойством цены автомобиля.
-   */
+//   get price() {
+//     //*why getter returnes undefined?
+//     return this._price;
+//   }
+//   set price(carPrice) {
+//     this._price = carPrice; //* Clarify names for setter and parameter it takes
+//   }
+//   static getSpecs(car) {
+//     console.log(`Максимальная скорость: ${car.maxSpeed}, текущая скорость: ${car.speed}, заведен ли автомобиль: ${car.isOn},
+//   общий киллометраж: ${car.distance}, цена: ${car._price}`);
+//   }
+//   /*
+//    * Добавь геттер и сеттер для свойства price,
+//    * который будет работать с свойством цены автомобиля.
+//    */
 
-  /*
-   * Добавь код для того чтобы завести автомобиль
-   * Записывает в свойство isOn значение true
-   */
-  turnOn() {
-    this.isOn = true;
-  }
+//   /*
+//    * Добавь код для того чтобы завести автомобиль
+//    * Записывает в свойство isOn значение true
+//    */
+//   turnOn() {
+//     this.isOn = true;
+//   }
 
-  /*
-   * Добавь код для того чтобы заглушить автомобиль
-   * Записывает в свойство isOn значение false,
-   * и сбрасывает текущую скорость в 0
-   */
-  turnOff() {
-    this.isOn = false;
-    this.speed = 0;
-  }
+//   /*
+//    * Добавь код для того чтобы заглушить автомобиль
+//    * Записывает в свойство isOn значение false,
+//    * и сбрасывает текущую скорость в 0
+//    */
+//   turnOff() {
+//     this.isOn = false;
+//     this.speed = 0;
+//   }
 
-  /*
-   * Добавялет к свойству speed полученное значение,
-   * при условии что результирующая скорость
-   * не больше чем значение свойства maxSpeed
-   */
-  accelerate(value) {
-    if (this.speed + value < this.maxSpeed) {
-      this.speed += value;
-    }
-  }
+//   /*
+//    * Добавялет к свойству speed полученное значение,
+//    * при условии что результирующая скорость
+//    * не больше чем значение свойства maxSpeed
+//    */
+//   accelerate(value) {
+//     if (this.speed + value < this.maxSpeed) {
+//       this.speed += value;
+//     }
+//   }
 
-  /*
-   * Отнимает от свойства speed полученное значение,
-   * при условии что результирующая скорость не меньше нуля
-   */
-  decelerate(value) {
-    if (this.speed - value >= 0) {
-      this.speed -= value;
-    }
-  }
+//   /*
+//    * Отнимает от свойства speed полученное значение,
+//    * при условии что результирующая скорость не меньше нуля
+//    */
+//   decelerate(value) {
+//     if (this.speed - value >= 0) {
+//       this.speed -= value;
+//     }
+//   }
 
-  /*
-   * Добавляет в поле distance киллометраж (hours * speed),
-   * но только в том случае если машина заведена!
-   */
-  drive(hours) {
-    if (this.isOn === true) {
-      this.distance += hours * this.speed;
-    }
-  }
-}
+//   /*
+//    * Добавляет в поле distance киллометраж (hours * speed),
+//    * но только в том случае если машина заведена!
+//    */
+//   drive(hours) {
+//     if (this.isOn === true) {
+//       this.distance += hours * this.speed;
+//     }
+//   }
+// }
 
-const mustang = new Car({ maxSpeed: 200, price: 2000 });
+// const mustang = new Car({ maxSpeed: 200, price: 2000 });
 
-mustang.turnOn();
-mustang.accelerate(50);
-mustang.drive(2);
+// mustang.turnOn();
+// mustang.accelerate(50);
+// mustang.drive(2);
 
-Car.getSpecs(mustang);
-// maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000
+// Car.getSpecs(mustang);
+// // maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000
 
-mustang.decelerate(20);
-mustang.drive(1);
-mustang.turnOff();
+// mustang.decelerate(20);
+// mustang.drive(1);
+// mustang.turnOff();
 
-Car.getSpecs(mustang);
-// maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
+// Car.getSpecs(mustang);
+// // maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
 
-console.log(mustang.price); // 2000
-mustang.price = 4000;
-console.log(mustang.price); // 4000
+// console.log(mustang.price); // 2000
+// mustang.price = 4000;
+// console.log(mustang.price); // 4000
+
