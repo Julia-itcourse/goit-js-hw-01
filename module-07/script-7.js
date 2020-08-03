@@ -73,3 +73,62 @@
 // img.forEach(
 //   imgEl => ((imgEl.style.width = '250px'), (imgEl.style.margin = '15px')),
 // );
+
+//? TASK 4
+
+// let counterValue = value.textContent; //*why this works if value is not an elem, but id?
+// let textValue = document.querySelector('#value');
+// let counterValue = +textValue.textContent;
+
+// const increment = () => {
+//   counterValue += 1;
+//   textValue.textContent = counterValue;
+// };
+// const decrement = () => {
+//   counterValue -= 1;
+//   textValue.textContent = counterValue;
+// };
+
+// document
+//   .querySelector("[data-action='increment']")
+//   .addEventListener('click', increment);
+
+// document
+//   .querySelector("[data-action='decrement']")
+//   .addEventListener('click', decrement);
+
+//? TASK 5
+
+// const input = document.querySelector('#name-input');
+// const span = document.querySelector('#name-output');
+
+// const updateSpanValue = () => {
+//   const inputValue = input.value;
+
+//   inputValue === ''
+//     ? (span.textContent = 'незнакомец')
+//     : (span.textContent = inputValue);
+// };
+
+// input.addEventListener('input', updateSpanValue);
+
+//? TASK 6
+//*could be done with toggle? (Didn't work without page reload)
+// const input = document.querySelector('#validation-input');
+// input.addEventListener('blur', () => {
+//   console.log(input.value.length);
+//   console.log(input.getAttribute('data-length'));
+
+//   input.value.length === +input.getAttribute('data-length')
+//     ? (input.className = 'valid')
+//     : (input.className = 'invalid');
+// });
+
+//? TASK 7
+
+const input = document.querySelector('#font-size-control');
+const span = document.querySelector('#text');
+input.addEventListener(
+  'input',
+  () => (span.style.fontSize = input.value + 'px'),
+);
