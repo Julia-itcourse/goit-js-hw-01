@@ -29,16 +29,6 @@
 //     ingredientsHolder.append(elRef);
 // });
 
-//*____________version 2, why doesnt work?__________________________
-// const ingredientsList = ingredients.map(ingredient => {
-//   let elRef = document.createElement('li');
-//   elRef.textContent = ingredient;
-//   return elRef;
-// });
-
-// const ingredientsHolder = document.querySelector('#ingredients');
-// ingredientsHolder.append(ingredientsList);
-
 //? TASK 3
 
 // const images = [
@@ -113,7 +103,7 @@
 // input.addEventListener('input', updateSpanValue);
 
 //? TASK 6
-//*could be done with toggle? (Didn't work without page reload)
+
 // const input = document.querySelector('#validation-input');
 // input.addEventListener('blur', () => {
 //   console.log(input.value.length);
@@ -126,9 +116,42 @@
 
 //? TASK 7
 
-const input = document.querySelector('#font-size-control');
-const span = document.querySelector('#text');
-input.addEventListener(
-  'input',
-  () => (span.style.fontSize = input.value + 'px'),
-);
+// const input = document.querySelector('#font-size-control');
+// const span = document.querySelector('#text');
+// input.addEventListener(
+//   'input',
+//   () => (span.style.fontSize = input.value + 'px'),
+// );
+
+//? TASK 8
+
+const boxesHolder = document.querySelector('#boxes');
+const inputElem = document.querySelector('.inputNumber');
+
+const render = document.querySelector('[data-action="render"]');
+const destroy = document.querySelector('[data-action="destroy"]');
+
+const createBoxes = function () {
+  let color;
+  let width = 30;
+  let height = 30;
+  for (let i = 0; i < inputElem.value; i += 1) {
+    color =
+      'rgb(' +
+      Math.round(Math.random() * 255) +
+      ',' +
+      Math.round(Math.random() * 255) +
+      ',' +
+      Math.round(Math.random() * 255) +
+      ')';
+    width += 10;
+    height += 10;
+    boxesHolder.innerHTML += `<div style = "margin: 10px; background-color:${color}; width: ${width}px; height: ${height}px"></div>`;
+  }
+};
+const destroyBoxes = function () {
+  boxesHolder.innerHTML = '';
+};
+
+render.addEventListener('click', createBoxes);
+destroy.addEventListener('click', destroyBoxes);
