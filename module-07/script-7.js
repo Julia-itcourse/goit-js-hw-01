@@ -21,7 +21,16 @@
 //   'Зелень',
 //   'Приправы',
 // ];
+//*Corrected version
+// const ingredientsHolder = document.querySelector('#ingredients');
+// const ingredientsList = ingredients.map(ingredient => {
+//   let elRef = document.createElement('li');
+//   elRef.textContent = ingredient;
+//   return elRef;
+// });
+// ingredientsHolder.append(...ingredientsList);
 
+//*Old version
 // const ingredientsHolder = document.querySelector('#ingredients');
 // ingredients.forEach(ingredient => {
 //     let elRef = document.createElement('li');
@@ -66,26 +75,33 @@
 
 //? TASK 4
 
-// let counterValue = value.textContent; //*why this works if value is not an elem, but id?
 // let textValue = document.querySelector('#value');
-// let counterValue = +textValue.textContent;
+// let incrementEl = document.querySelector("[data-action='increment']");
+// let decrementEl = document.querySelector("[data-action='decrement']");
 
-// const increment = () => {
-//   counterValue += 1;
+// let updateTextValue = function () {
 //   textValue.textContent = counterValue;
 // };
-// const decrement = () => {
-//   counterValue -= 1;
-//   textValue.textContent = counterValue;
+// let counterValue = 0;
+// let increment = function () {
+//   updateCounterValue('increment');
+//   updateTextValue();
 // };
 
-// document
-//   .querySelector("[data-action='increment']")
-//   .addEventListener('click', increment);
+// let decrement = function () {
+//   updateCounterValue('decrement');
+//   updateTextValue();
+// };
 
-// document
-//   .querySelector("[data-action='decrement']")
-//   .addEventListener('click', decrement);
+// let updateCounterValue = function (str) {
+//   if (str === 'increment') {
+//     counterValue++;
+//   } else {
+//     counterValue--;
+//   }
+// };
+// decrementEl.addEventListener('click', decrement);
+// incrementEl.addEventListener('click', increment);
 
 //? TASK 5
 
@@ -125,33 +141,33 @@
 
 //? TASK 8
 
-const boxesHolder = document.querySelector('#boxes');
-const inputElem = document.querySelector('.inputNumber');
+// const boxesHolder = document.querySelector('#boxes');
+// const inputElem = document.querySelector('.inputNumber');
 
-const render = document.querySelector('[data-action="render"]');
-const destroy = document.querySelector('[data-action="destroy"]');
+// const render = document.querySelector('[data-action="render"]');
+// const destroy = document.querySelector('[data-action="destroy"]');
 
-const createBoxes = function () {
-  let color;
-  let width = 30;
-  let height = 30;
-  for (let i = 0; i < inputElem.value; i += 1) {
-    color =
-      'rgb(' +
-      Math.round(Math.random() * 255) +
-      ',' +
-      Math.round(Math.random() * 255) +
-      ',' +
-      Math.round(Math.random() * 255) +
-      ')';
-    width += 10;
-    height += 10;
-    boxesHolder.innerHTML += `<div style = "margin: 10px; background-color:${color}; width: ${width}px; height: ${height}px"></div>`;
-  }
-};
-const destroyBoxes = function () {
-  boxesHolder.innerHTML = '';
-};
+// const createBoxes = function () {
+//   let color;
+//   let width = 30;
+//   let height = 30;
+//   for (let i = 0; i < inputElem.value; i += 1) {
+//     color =
+//       'rgb(' +
+//       Math.round(Math.random() * 255) +
+//       ',' +
+//       Math.round(Math.random() * 255) +
+//       ',' +
+//       Math.round(Math.random() * 255) +
+//       ')';
+//     width += 10;
+//     height += 10;
+//     boxesHolder.innerHTML += `<div style = "margin: 10px; background-color:${color}; width: ${width}px; height: ${height}px"></div>`;
+//   }
+// };
+// const destroyBoxes = function () {
+//   boxesHolder.innerHTML = '';
+// };
 
-render.addEventListener('click', createBoxes);
-destroy.addEventListener('click', destroyBoxes);
+// render.addEventListener('click', createBoxes);
+// destroy.addEventListener('click', destroyBoxes);
