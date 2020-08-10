@@ -26,21 +26,58 @@ gallery.forEach(
 
 galleryList.innerHTML = galleryItems;
 
-// Реализация делегирования на галерее ul.js - gallery и получение url большого изображения.
-
 const lightboxElem = document.querySelector('.js-lightbox');
-const getBigImgUrl = function (event) {
+const lightboxImage = document.querySelector('.lightbox__image');
+const closeIcon = document.querySelector('.lightbox__button');
+const overlay = document.querySelector('.lightbox__overlay');
+
+const openLightbox = function (event) {
   event.preventDefault();
   if (event.target.nodeName !== 'IMG') return;
-  console.log(event.target.getAttribute('data-source'));
+  // console.log(event.target.getAttribute('data-source'));
   lightboxElem.classList.add('is-open');
+  lightboxImage.src = event.target.getAttribute('data-source');
 };
 
-galleryList.addEventListener('click', getBigImgUrl);
+const closeLightbox = function () {
+  lightboxElem.classList.remove('is-open');
+  lightboxImage.src = '';
+};
 
-// Подмена значения атрибута src элемента img.lightbox__image.
+galleryList.addEventListener('click', openLightbox);
+closeIcon.addEventListener('click', closeLightbox);
 
-// Закрытие модального окна по клику на кнопку button[data - action= "close-modal"].
+//_______Additional tasks________________
 
-// Очистка значения атрибута src элемента img.lightbox__image.Это необходимо для того,
-// чтобы при следующем открытии модального окна, пока грузится изображение, мы не видели предыдущее.
+// Закрытие модального окна по нажатию клавиши ESC.
+
+window.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    lightboxElem.classList.remove('is-open');
+  }
+});
+
+//? не работает Закрытие модального окна по клику на div.lightbox__overlay.
+
+overlay.addEventListener('click', closeLightbox);
+
+// Пролистывание изображений галереи в открытом модальном окне клавишами "влево" и "вправо".
+
+//* just some ideas on logic on gallery scroll
+const scrollRight = function (event) {
+  for (
+    let currentSlideIndex = 0;
+    currentSlideIndex < gallery.length;
+    currentSlideIndex++
+  ) {}
+};
+const scrollLeft = function (event) {
+  for (
+    let currentSlideIndex = 0;
+    currentSlideIndex < gallery.length;
+    currentSlideIndex--
+  ) {}
+};
+
+window.addEventListener(keydown, scrollRight);
+window.addEventListener(keydown, scrollLeft);

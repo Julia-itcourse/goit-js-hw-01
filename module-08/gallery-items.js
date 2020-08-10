@@ -15,10 +15,10 @@ export default [
   },
   {
     preview:
-      'https://cdn.pixabay.com/photo/2019/05/16/09/47/view-4206785__340.jpg',
+      'https://cdn.pixabay.com/photo/2016/04/25/18/07/halcyon-1352522__340.jpg',
     original:
-      'https://cdn.pixabay.com/photo/2019/05/16/09/47/view-4206785_1280.jpg',
-    description: 'Aerial Beach View',
+      'https://cdn.pixabay.com/photo/2016/04/25/18/07/halcyon-1352522_960_720.jpg',
+    description: 'Bird',
   },
   {
     preview:
