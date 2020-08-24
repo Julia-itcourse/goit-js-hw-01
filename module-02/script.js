@@ -140,12 +140,10 @@ console.log(formatString('Curabitur ligula sapien.'));
 // const isLoginValid = function (login) {
 //   return login.length >= 4 && login.length <= 16;
 // };
-// console.log(isLoginValid('hi'));
 
 // const isLoginUnique = function (allLogins, login) {
 //   return allLogins.includes(login);
 // };
-// console.log(isLoginUnique(logins, 'Poly'));
 
 // const addLogin = function (allLogins, login) {
 //   if (!isLoginValid(login)) {
